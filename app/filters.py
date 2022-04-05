@@ -1,19 +1,29 @@
 """Module filters"""
+from flask import Flask
 
 
-def text_upper(text):
+def load(app: Flask) -> Flask:
     """
-    Filter
-    :param text:
+    load
+    :param app:
     :return:
     """
-    return text.upper()
+    @app.template_filter()
+    def text_upper(text):
+        """
+        Filter
+        :param text:
+        :return:
+        """
+        return text.upper()
 
+    @app.template_filter()
+    def text_truncate(text):
+        """
+        Filter
+        :param text:
+        :return:
+        """
+        return text[:80] + ' [...]'
 
-def text_truncate(text):
-    """
-    Filter
-    :param text:
-    :return:
-    """
-    return text[:80] + ' [...]'
+    return app
