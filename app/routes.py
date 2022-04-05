@@ -1,5 +1,5 @@
 """Routes module"""
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 
 def load(app: Flask) -> Flask:
@@ -14,9 +14,16 @@ def load(app: Flask) -> Flask:
         render = render_template('testing.html')
         return render
 
-    @app.route('/login')
+    @app.route('/login', methods=['GET', 'POST'])
     def login():
-        render = render_template('login.html')
+        contact = ''
+
+        if request.method == 'POST':
+            name = request.form['name']
+            email = request.form['email']
+            contact = f'<Name {name}> {email}'
+
+        render = render_template('login.html', contact=contact)
         return render
 
     @app.route('/home')
