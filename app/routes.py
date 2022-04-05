@@ -14,14 +14,23 @@ def load(app: Flask) -> Flask:
         render = render_template('testing.html')
         return render
 
+    @app.route('/login')
+    def login():
+        render = render_template('login.html')
+        return render
+
     @app.route('/home')
     def home():
         name = 'Home Page'
         long_text = (
-            'Lorem ipsum asdasdsadsadasdasdasdsadasd asdasdsad sads'
-            '1asdas dasdsadasdasd @ asdsadasdas dasd asdasd as dasd #'
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+            'Nullam nec efficitur lacus. Nulla id sem sit amet justo '
+            'sollicitudin consequat.'
         )
-        render = render_template('home.html', name=name, long_text=long_text)
+        itens = ['Item 1', 'Item 2', 'Item 3']
+        render = render_template(
+            'home.html', name=name, long_text=long_text, itens=itens
+        )
         return render
 
     return app

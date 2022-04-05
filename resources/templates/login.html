@@ -1,0 +1,14 @@
+{% extends 'layouts/base.html' %}
+
+{% import 'components/forms.html' as form %}
+
+{% block conteudo %}
+
+<div class="container">
+    <form action="">
+        {{ form.input('email', 'Insira um email', 'email') }}
+        {{ form.input('text', 'Insira um nome', 'name') }}
+    </form>
+</div>
+
+{% endblock %}

@@ -8,6 +8,7 @@ def load(app: Flask) -> Flask:
     :param app:
     :return:
     """
+
     @app.template_filter()
     def text_upper(text):
         """
