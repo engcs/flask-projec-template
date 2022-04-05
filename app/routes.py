@@ -17,8 +17,10 @@ def load(app: Flask) -> Flask:
     @app.route('/home')
     def home():
         name = 'Home Page'
-        long_text = "Lorem ipsum asdasdsadsadasdasdasdsadasd asdasdsad sads" \
-                    "1asdas dasdsadasdasd @ asdsadasdas dasd asdasd as dasd #"
+        long_text = (
+            'Lorem ipsum asdasdsadsadasdasdasdsadasd asdasdsad sads'
+            '1asdas dasdsadasdasd @ asdsadasdas dasd asdasd as dasd #'
+        )
         render = render_template('home.html', name=name, long_text=long_text)
         return render
 

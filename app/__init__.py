@@ -4,8 +4,8 @@ import os
 
 from flask import Flask, render_template
 
-from app.filters import text_upper, text_truncate
 from app import routes
+from app.filters import text_truncate, text_upper
 from config import BASE_DIR
 
 
@@ -21,7 +21,8 @@ def create_app():
     )
 
     routes.load(app)
-    app.jinja_env.filters['text_upper'] = text_upper
-    app.jinja_env.filters['text_truncate'] = text_truncate
+    env = app.jinja_environment()
+    env.filters['text_upper'] = text_upper
+    env.filters['text_truncate'] = text_truncate
 
     return app
