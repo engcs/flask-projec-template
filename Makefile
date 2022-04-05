@@ -1,13 +1,13 @@
 ## rodar lints
 .PHONY: lint, style, formatter, isort
-lint:
-	pylint main.py
-	pylint config.py
-	pylint ./app
 style:
 	pycodestyle main.py
 	pycodestyle config.py
 	pycodestyle ./app
+lint: style
+	pylint main.py
+	pylint config.py
+	pylint ./app
 isort:
 	isort main.py
 	isort config.py
