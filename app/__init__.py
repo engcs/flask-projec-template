@@ -18,14 +18,7 @@ def create_app():
         __name__, template_folder=template_folder, static_folder=static_folder
     )
 
-    @app.route('/testing')
-    def testing():
-        render = render_template('testing.html')
-        return render
-
-    @app.route('/home')
-    def home():
-        render = render_template('home.html')
-        return render
+    from app import routes
+    routes.load(app)
 
     return app
