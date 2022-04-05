@@ -13,7 +13,7 @@ def create_app():
     :return:
     """
     template_folder = os.path.join(BASE_DIR, 'resources', 'templates')
-    static_folder = os.path.join(BASE_DIR, 'resources', 'templates')
+    static_folder = os.path.join(BASE_DIR, 'resources', 'static')
     app = Flask(
         __name__, template_folder=template_folder, static_folder=static_folder
     )
