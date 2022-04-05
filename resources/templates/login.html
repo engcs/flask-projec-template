@@ -4,11 +4,18 @@
 
 {% block conteudo %}
 
-<div class="container">
-    <form action="">
-        {{ form.input('email', 'Insira um email', 'email') }}
-        {{ form.input('text', 'Insira um nome', 'name') }}
-    </form>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <form action="">
+                {{ form.input('email', 'Insira um email', 'email') }}
+                {{ form.input('text', 'Insira um nome', 'name') }}
+                <div class="text-end">
+                    <input type="submit" value="Logar" class="btn btn-success ">
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
