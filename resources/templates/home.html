@@ -1,0 +1,14 @@
+{% extends 'layouts/base.html' %}
+
+{% block conteudo %}
+<div class="container-fluid">
+    <h1>Home</h1>
+    <p>{{ name|text_upper }}</p>
+    <p>{{ long_text|text_truncate }}</p>
+    <ul>
+    {% for item in itens %}
+        <li>{{ item|upper }}</li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}
